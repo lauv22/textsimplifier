@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plainly — make dense text clear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
 
+<header class="site-header">
+  <div class="wrap">
+    <span class="wordmark">Plainly</span>
+    <span class="tagline">dense text, made clear</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro">
+    <h1>Paste something dense.<br>Get something clear.</h1>
+    <p class="lede">Plainly rewrites academic or technical text into plain language, and shows you exactly how much easier it got to read.</p>
+  </section>
+
+  <section class="editor">
+    <label for="input-text" class="field-label">Your text</label>
+    <textarea id="input-text" placeholder="Paste a dense paragraph here — a textbook excerpt, a research abstract, a policy document..." maxlength="2000"></textarea>
+    <div class="editor-row">
+      <span id="char-count" class="char-count">0 / 2000</span>
+      <button id="simplify-btn" type="button">
+        <span class="btn-label">Simplify</span>
+        <span class="btn-spinner" hidden></span>
+      </button>
+    </div>
+    <p id="error-msg" class="error-msg" hidden></p>
+  </section>
+
+  <section id="results" class="results" hidden>
+
+    <div class="panels">
+      <article class="panel panel--dense">
+        <div class="panel-head">
+          <span class="panel-label">Original</span>
+          <span class="grade-badge grade-badge--dense" id="grade-original">—</span>
+        </div>
+        <p id="text-original" class="panel-text"></p>
+      </article>
+
+      <article class="panel panel--clear">
+        <div class="panel-head">
+          <span class="panel-label">Simplified</span>
+          <span class="grade-badge grade-badge--clear" id="grade-simplified">—</span>
+        </div>
+        <p id="text-simplified" class="panel-text"></p>
+      </article>
+    </div>
+
+    <div class="gauge-block">
+      <div class="gauge-head">
+        <span class="gauge-title">Reading level</span>
+        <span class="gauge-caption">U.S. grade level needed to read the text easily</span>
+      </div>
+      <div class="gauge">
+        <div class="gauge-track">
+          <div class="gauge-scale">
+            <span>0</span><span>4</span><span>8</span><span>12</span><span>16+</span>
+          </div>
+          <div class="gauge-bar">
+            <div class="gauge-fill" id="gauge-fill"></div>
+            <div class="gauge-marker gauge-marker--dense" id="marker-original">
+              <span class="marker-dot"></span>
+              <span class="marker-label">Original</span>
+            </div>
+            <div class="gauge-marker gauge-marker--clear" id="marker-simplified">
+              <span class="marker-dot"></span>
+              <span class="marker-label">Simplified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="gauge-summary" id="gauge-summary"></p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Built with a FLAN-T5 language model, running locally.</span>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
