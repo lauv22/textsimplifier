@@ -3,8 +3,8 @@ Flask web app for the text simplifier.
 Wraps simplify_text() and compare_readability() from simplify.py in a
 simple web UI with before/after readability comparison.
 """
-
-
+from flask import Flask, request, jsonify, render_template
+from simplify import simplify_text, compare_readability
 
 app = Flask(__name__)
 
