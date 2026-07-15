@@ -1,4 +1,10 @@
-
+:root {
+  --paper: #EDEEF0;
+  --paper-raised: #F6F7F8;
+  --ink: #14171C;
+  --ink-soft: #4B5158;
+  --caption: #6B7280;
+  --line: #D7D9DC;
 
   --teal: #2F5D62;
   --teal-dark: #234548;
