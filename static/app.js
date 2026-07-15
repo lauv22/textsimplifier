@@ -6,13 +6,7 @@ const btnSpinner = simplifyBtn.querySelector(".btn-spinner");
 const errorMsg = document.getElementById("error-msg");
 const results = document.getElementById("results");
 
-const textOriginal = document.getElementById("text-original");
-const textSimplified = document.getElementById("text-simplified");
-const gradeOriginal = document.getElementById("grade-original");
-const gradeSimplified = document.getElementById("grade-simplified");
-const markerOriginal = document.getElementById("marker-original");
-const markerSimplified = document.getElementById("marker-simplified");
-const gaugeSummary = document.getElementById("gauge-summary");
+
 
 const GAUGE_MIN = 0;
 const GAUGE_MAX = 16;
